@@ -1,0 +1,38 @@
+ /* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ  ﷺ  InshaAllah */
+/* Allah is enough for me */
+import { urlReducer } from "./reducer"
+
+ 
+
+
+const actions =  {
+ ADD_IMAGE :'ADD_IMAGE' ,
+ ADD_METADATA : 'ADD_METADATA',
+ ADD_URL :'ADD_URL',
+ SUCCESS_STATUS :'SUCCESS_STATUS',
+ PENDING_STATUS : 'PENDING_STATUS',
+ ADD_CHANGE_OBJECT :'ADD_CHANGE_OBJECT',
+ EMPTY_CHANGE_OBJECT :'EMPTY_CHANGE_OBJECT',
+ ADD_FILTER_NONE : 'ADD_FILTER_NONE',
+ ADD_FILTER_BLUR : 'ADD_FILTER_BLUR',
+ ADD_FILTER_BRIGHTNESS : 'ADD_FILTER_BRIGHTNESS',
+ ADD_FILTER_SATURATION : 'ADD_FILTER_SATURATION',
+ ADD_FILTER_HUE : 'ADD_FILTER_HUE',
+
+}
+
+
+
+
+
+
+export default actions
+
+
+
+
+
+
+
+
+

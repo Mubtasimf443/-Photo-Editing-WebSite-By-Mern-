@@ -1,0 +1,171 @@
+ /* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ  ﷺ  InshaAllah */
+/*Allah is enough for me */ 
+
+* {
+    color: #fff;
+    margin: 0px;
+    padding: 0em;
+    font-family: Arial;
+    
+  }
+  
+  body{
+    background: #05061AF0;
+  }
+
+
+section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+/*--- sidebar ---*/
+
+
+
+
+ #sidebar{
+   background: #020513;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: left;
+   column-gap: 0.5em;
+   width: 100%;
+   height: 3em;
+   padding-left: 2em;
+   padding-right: 2em;
+ }
+
+
+ .resize_div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  
+ }
+
+
+ .sidebar_btn_div {
+  display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: left;
+   column-gap: 0.8em;
+  position: absolute;
+right: 2em;
+ }
+.sidebar_btn_div > button {
+  background: inherit;
+  border: none
+}
+ 
+
+ .sidebar_icon {
+  color: #a0acf0d2;
+  background: inherit;
+  font-size: 1.4em;
+ 
+  width: 2em;
+ }
+ 
+
+ .sidebar_icon:hover {
+  color: #88c9ff;
+  font-size: 1.5em;
+ }
+
+
+ .active_icon {
+  background: inherit;
+  font-size: 1.4em;
+  width: 2em;
+  color:#9dd2fd ;
+  filter: none;
+ }
+
+.hw_input{
+  margin:0.1em 0.45em;
+  height: 1.63em;
+  width: 3em;
+  background: #ffffff07;
+  border: 2px solid #ffffff10;
+  border-radius: 5px;
+  outline: none;
+  color: #ffffff5b;
+  overflow: hidden;
+
+}
+
+.hw_input::-webkit-inner-spin-button {
+  
+  
+  
+display: none;
+}
+
+
+
+/*slider*/
+#slider_ {
+  background-color: #020513;
+  height: 5.4em;
+  margin-top: 0.5em;
+  width: 34%;
+  border-radius: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  padding: 0.5em 1em;
+  top: -6em;
+  z-index: -100;
+  position: absolute;
+  transition: all 0.85s ease-in-out;
+  row-gap: 0.36em;
+
+}
+input[type="range"] {
+  background-color: #0000000c;
+  color: rgb(0, 0, 0);
+}
+input[type="range"]::-webkit-slider-runnable-track {
+background:#0000000c;
+color: #fff;
+accent-color: #FFF;
+
+}
+
+#slider_ > button {
+  width: 5em;
+  background: inherit;
+  border: 1.5px solid #ffffff10;
+  height: 2em;
+}
+/* Image container */
+
+.img_container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+  padding: 2em 2em;
+height:fit-content;
+height: fit-content;
+}
+
+
+.main_img{
+ max-width: 80%;
+ height: auto;
+}
+
+
+
