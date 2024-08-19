@@ -15,11 +15,15 @@
 
 
 section {
-  width: 100%;
+  min-width: 100%;
+  max-width: 700%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 3000vh;
+  overflow-y: scroll;
+  overflow-x: scroll;
 }
 
 
@@ -79,15 +83,23 @@ right: 2em;
  .sidebar_icon:hover {
   color: #88c9ff;
   font-size: 1.5em;
+  cursor: pointer;;
  }
 
-
+.img_icons {
+  width: 1.65em;
+  height: 1.65em;
+  margin: 0.5em;
+  cursor: pointer;;
+}
  .active_icon {
   background: inherit;
   font-size: 1.4em;
   width: 2em;
   color:#9dd2fd ;
   filter: none;
+  cursor: pointer;;
+
  }
 
 .hw_input{
@@ -127,7 +139,7 @@ display: none;
   top: -6em;
   z-index: -100;
   position: absolute;
-  transition: all 0.85s ease-in-out;
+  transition: all 0.4s ease-in;
   row-gap: 0.36em;
 
 }
@@ -139,10 +151,19 @@ input[type="range"]::-webkit-slider-runnable-track {
 background:#0000000c;
 color: #fff;
 accent-color: #FFF;
-
+cursor: grab;
 }
 
-#slider_ > button {
+
+input[type="range"]::-webkit-slider-runnable-track:focus {
+  background:#0000000c;
+  color: #fff;
+  accent-color: #FFF;
+  cursor: grabbing;
+  }
+  
+
+#slider_ > span > button {
   width: 5em;
   background: inherit;
   border: 1.5px solid #ffffff10;
@@ -165,6 +186,7 @@ height: fit-content;
 .main_img{
  max-width: 80%;
  height: auto;
+ cursor: zoom-in;
 }
 
 

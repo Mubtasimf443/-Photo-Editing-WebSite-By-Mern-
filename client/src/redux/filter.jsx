@@ -12,7 +12,10 @@ export const filter = {
     BRIGHTNESS :'BRIGHTNESS',
     SATURATION :'SATURATION',
     HUE :'HUE',
-    SEPIA :'SEPIA' ,
+    GRAYSCALE :'GRAYSCALE' ,
+    OPACITY : 'OPACITY',
+    CONTRAST :'CONTRAST',
+    SCALE :'SCALE',
 }
 
 

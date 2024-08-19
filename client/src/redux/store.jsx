@@ -11,9 +11,9 @@ const rootReducer = combineReducers({
     url : urlReducer ,
     meta : metedataReducer,
     status : statusReducer ,
-    changeArray :changeArrayReducer ,
+    changeArray :changeArrayReducer,
     filter :filterReducer 
-})
+}) 
 
 export const store = createStore(rootReducer )
 

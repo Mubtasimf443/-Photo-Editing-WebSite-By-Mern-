@@ -3,6 +3,7 @@
 
 
 import React from 'react'
+import { copyMetaData } from '../utils/smallUtils'
 
 const ShowDownImage = ({arr}) => {
     if (arr.length === 0) return <></>

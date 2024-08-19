@@ -1,14 +1,14 @@
-import 'jimp.js'
+import './jimpBrowser.js'
 
 
 
 //blurImage
-export async function blurImage() {
+export async function blurImage(url) {
   // Read the image.
-  const image = await Jimp.read('https://images.pexels.com/photos/298842/pexels-photo-298842.jpeg');
+  const image = await Jimp.read(url);
   await image.blur(20);
   // Save and overwrite the image
-  await image.writeAsync(`test/${Date.now()}_blur_150x150.png`);
+  return image
 }
 
 

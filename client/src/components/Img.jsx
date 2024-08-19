@@ -5,27 +5,39 @@ import React, { useCallback } from 'react'
 import { useSelector } from 'react-redux';
 import { log } from '../utils/smallUtils';
 import getFilterCSS from '../utils/getFilterCSS';
+import { useState } from 'react';
 
 const Img = ({url}) => {
+    const meta = useSelector(store => store.meta)
     let {name,value} = useSelector(e => e.filter)
-    let filterCall = useCallback(e => { log(name); let c = getFilterCSS({name , value});log(c);return c},  [value,name])
+    let filterCall = useCallback(e => getFilterCSS({name , value}),  [value,name])
+    let [zoomCSS,setZoomCSS] = useState(100 / 100)
+    const heigth = useCallback(e => {
+      if (meta.length === 0 ) return '50em'
+      return  (meta[meta.length -1].height / 10).toString() + 'mm' 
+    },[ meta])
 
-    if (url.length === 0) { return (
-    <div><h2>please add an Image</h2> </div>
-  );
-   }
+    const width = useCallback(e => {
+      if (meta.length === 0 ) return '100em'
+      return  (meta[meta.length -1].width / 10).toString() + 'mm' 
+    },[ meta])
+    if (url.length === 0) return (<div><h2>please add an Image</h2> </div>)
+   
    
   //   let nameCall = useCallback(e => name  ,  [name])
     return (
-        <div style={{
-        width:'100em' ,
-        minHeight :'100vh'  ,
+        <div id='ab' onDoubleClick={e => setZoomCSS(1)} onClick={e => setZoomCSS(e => e + 0.6) } style={{
+        width:width(),
+        minHeight : heigth() ,
         maxHeight :'500vh',
         backgroundRepeat:'no-repeat',
-        backgroundSize:'contain',
+        backgroundSize:'cover',
         backgroundImage:'url("' + url[url.length - 1] + '")',
-        filter:filterCall()
-       
+        filter:filterCall(),
+        cursor:'zoom-in',
+        zoom :zoomCSS ,
+    
+
          }} >
 
         </div>

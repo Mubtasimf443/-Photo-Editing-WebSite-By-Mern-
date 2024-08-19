@@ -4,28 +4,38 @@
 import { useMemo, useRef } from "react"
 import { log, makePending } from "../utils/smallUtils"
 import { useDispatch } from "react-redux"
+import { addTypeData } from "../redux/action"
+import actions from "../redux/actions"
 
 const ResizeDiv = ({meta}) => {
   let dispatch = useDispatch()
-  let Hinput = useRef()
-  let Winput = useRef()
+  
 
-  useMemo(() => {
-    if (meta.length === 0) return 
-    let {height , width} = meta[meta.length -1]
-    Hinput.current.value = height
-    Winput.current.value = height
-
-  }, [meta])
+  let metaObj = useMemo(e => {
+    if (meta.length === 0) return { height :"", width :""}
+    let {height , width } = meta[meta.length -1 ]
+        return { height , width }
+  } ,[meta])
+ 
+   //log(height)
   return (
     <div className="resize_div">
-        <span>
+        <span title="height">
             <b>H</b> 
-          <input ref={Hinput} onChange={ e => makePending(dispatch)}  min={0}  className='hw_input'  type="number"  />
+          <input 
+          value={metaObj.height} 
+          onClick={ e => { 
+    
+            makePending(dispatch)
+            
+            }}  min={0}  className='hw_input'  type="number"  />
         </span>
-        <span>
+        <span title="width">
             <b>W</b> 
-          <input ref={Winput} onChange={ e => makePending(dispatch) } min={0} className='hw_input' type="number" />
+          <input 
+           value={metaObj.width} 
+           onClick={ e => {
+            makePending(dispatch) }} min={0} className='hw_input' type="number" />
         </span>
       </div>
   )

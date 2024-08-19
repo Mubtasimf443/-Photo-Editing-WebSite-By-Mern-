@@ -13,11 +13,17 @@ import { errToast } from '../utils/toast'
 import UploadImageAsUrl from '../utils/UploadImageAsUrl'
 import ShowDownImage from './ShowDownImage'
 
+import { filter as filterNames} from '../redux/filter'
+import { AddFilter } from '../utils/AddFilterInImage'
+import Upload_img_icon from '../icons/Upload_img_icon'
+import WebIcon from '../icons/WebIcon'
+
+let {OPACITY ,BLUR} = filterNames
 
 
 const SideBar = () => {
   let dispatch = useDispatch()
-  let {url , meta , status} = useSelector(e => e)
+  let {url , meta ,  status ,filter} = useSelector(e => e)
 
   function inputChange(e) {
     let img = e.target.files[0]
@@ -31,58 +37,106 @@ const SideBar = () => {
     if (status === actions.PENDING_STATUS) return "fa-solid fa-floppy-disk active_icon"
   } , [status])
   return (
-    <div id='sidebar' >
+    <div id='sidebar'  >
      <div className="upload_div">
       <input type="file" onChange={inputChange} style={{ display:'none'}} id='main_image_input'/>
-      <label htmlFor="main_image_input">
-      <i className='fa-solid fa-image sidebar_icon '>
-      </i>
+      <label title='upload image' htmlFor="main_image_input">
+     <Upload_img_icon status={url.length === 0 ? 'main' :'active'} className={'img_icons'} />
+    
       </label>
   
       </div>
       
-     <ResizeDiv  meta={meta}/>
+     <ResizeDiv meta={meta}/>
       <div className="sidebar_btn_div">
-        <button onClick={e => dispatch(returnTypeValue(actions.ADD_FILTER_BRIGHTNESS ,0))} >
-     {/* brightness */}
-         <i  className="fa-regular fa-sun sidebar_icon "></i>
-        </button>
-        <button  onClick={e =>{ dispatch(returnTypeValue(actions.ADD_FILTER_SATURATION ,0))} } >
-              {/* Seturation*/}
-        <i className="fa-solid fa-fill-drip sidebar_icon"></i>
-        </button>
+       
+        <WebIcon 
+        title={'brightness'}
+        action={actions.ADD_FILTER_BRIGHTNESS}
+        filterName={filterNames.BRIGHTNESS}
+        isFilterIcon={true}
+        />
 
-         { /*  <button onClick={e => dispatch(returnTypeObj(actions.ADD_FILTER_BRIGHTNESS))} >
-                {/* contrast*/}{ /*</div>
-              <i className='fa-solid fa-paint-roller sidebar_icon'></i>
-            </button> */}
-            <button  onClick={e =>{ 
-              if (url.length === 0) return errToast('Please Setup an Image First')
-              dispatch(returnTypeValue(actions.ADD_FILTER_HUE ,0))}}  >
-                {/* hue */}
-              <i className='fa-solid fa-droplet sidebar_icon'></i>
-            </button>
+        <WebIcon 
+        title={'Seturation'}
+        action={actions.ADD_FILTER_SATURATION}
+        filterName={filterNames.SATURATION}
+        isFilterIcon={true}
+        />
+       
+        <WebIcon 
+        filterName={filterNames.BLUR} 
+        action={actions.ADD_FILTER_BLUR} 
+        title={'Blur'}
+        isFilterIcon={true}
+         />
+        
+       <WebIcon 
+        filterName={filterNames.CONTRAST} 
+        action={actions.ADD_FILTER_CONTRAST} 
+        title={'contrast'}
+        isFilterIcon={true}
+        />
+
+
+
+        <WebIcon 
+        filterName={filterNames.SCALE}
+        action={actions.ADD_FILTER_SCALE}
+        isFilterIcon={true}
+        title={'scale'}
+        />
+
+
+        <WebIcon 
+        filterName={filterNames.OPACITY} 
+        action={actions.ADD_FILTER_OPACITY} 
+        title={'Opacity'}
+        isFilterIcon={true}
+         /> 
+        
+        
+        <WebIcon 
+          title={'HUE'}
+          filterName={filterNames.HUE}
+          action={actions.ADD_FILTER_HUE}
+          isFilterIcon={true}
+        />
+        
+       <WebIcon 
+       title={'Remove Color'}
+       action={actions.ADD_FILTER_GRAYSCALE}
+       filterName={filterNames.GRAYSCALE}
+       isFilterIcon={true}
+       />
+
+        <WebIcon 
+          title={'Move to begining file'}
+          filterName={'REFRESH' }
+        />
+         
+         <WebIcon 
+          title={'undo'}
+          filterName={'UNDO' }
+        />
+
+
+        <WebIcon 
+          title={'redu'}
+          filterName={'REDO' }
+        />
+
+        <WebIcon 
+        title={'save change'}
+        filterName={'SAVE_CHANGE'}
+        />
+        
+               
+        <WebIcon 
+        title={'copy Image as uint8Array'}
+        filterName={'COPY_METADATA'}
+        />
            
-             <button  > {/*previuse  */}
-               <i className='fa-solid fa-angles-left sidebar_icon'>
-
-               </i>
-             </button>
-             <button> {/*forwrd  */}
-               <i className='fa-solid fa-angles-right sidebar_icon'>
-
-               </i>
-             </button>
-
-             <button>
-              <i className={saveChangeIconClass()} >
-
-              </i>
-             </button>
-             <button onClick={e => copyMetaData(meta)}>
-               {/* copy to clipboard  */}
-              <i className="fa-regular fa-copy sidebar_icon"></i>
-             </button>
              <ShowDownImage arr={url} />
       </div>
       

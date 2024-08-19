@@ -2,7 +2,7 @@
 /*Allah is enough for me */ 
 
 import '../public/css/style.css'
-
+import '../public/css/global.css'
 import React, { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import {Provider} from 'react-redux'

@@ -38,3 +38,10 @@ export const returnTypeValue = (type , value) => {
 export function returnTypeObj(type) {
     return {type}
 }
+
+
+export const addTypeData = (type , data) => {
+    return {type , data}
+}
+
+

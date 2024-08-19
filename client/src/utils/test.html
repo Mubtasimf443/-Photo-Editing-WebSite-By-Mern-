@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <script src='jimpBrowser.js'></script>
+    
+</head>
+<body>
+    
+    <input type="file" name="" id="file">
+    <div style="display: flex;flex-direction: row;">
+ 
+    <div class="b" style="width: 20em;background-image: url('../../../porfolio_img.png');min-height:100vh;background-size: contain;filter: blur(1.px);">
+
+    </div>   <div class="a"></div>
+</div>
+</body>
+<script>
+    const div = document.querySelector('.a')
+    let fie = document.querySelector('#file');
+    async function blurImage(url,parcentage ) {
+  // Read the image.
+  const image = await Jimp.read(url );
+   // Save and overwrite the image
+ await  image.contrast(-0.8)
+console.log(image.bitmap);
+
+   let buff =await image.getBufferAsync(Jimp.MIME_JPEG)
+   let uarr =await new Uint8Array(buff)
+   let a =await new Blob([uarr] , {type :"image/jpeg"})
+   
+    
+   let urlc= window.URL
+  let Newurl =await urlc.createObjectURL(a)
+   console.log(Newurl);
+  
+  return Newurl
+ 
+}
+
+
+
+    fie.addEventListener('change',async e => {
+        const img = document.createElement('img')
+        
+        let url = URL.createObjectURL(fie.files[0])
+        let a =await blurImage(url,10)
+        img.setAttribute('src',a)
+        img.setAttribute('style', 'width :20em')
+        div.appendChild(img)
+
+
+    })
+</script>
+</html>
