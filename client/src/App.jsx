@@ -5,7 +5,7 @@ import {  createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './Home';
 import { useSelector ,useDispatch } from "react-redux";
 import './utils/jimpBrowser.js'
-import { useMemo } from "react";
+import { StrictMode, useMemo } from "react";
 import { useEffect } from "react";
 import { log } from "./utils/smallUtils.js";
 import { addMeta, addUrl } from './redux/action'
@@ -24,16 +24,12 @@ const router = createBrowserRouter([
 
 const App = () => {
 
-
-   let meta = useSelector( e => e.meta) 
-   let url = useSelector(e => e.url)
-   let store = useSelector(store => store)
-   useMemo(e => log(store) , [store])
-   const dispatch = useDispatch()
   return (
     <>
-      <RouterProvider router={router} />
+   
+    <RouterProvider router={router} />
     <ToastContainer />
+   
     </>
   
   )

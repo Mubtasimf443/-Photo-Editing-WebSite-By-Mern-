@@ -4,15 +4,21 @@
 
 import React from 'react'
 import { copyMetaData } from '../utils/smallUtils'
+import { useSelector } from 'react-redux'
+import WebIcon from '../icons/WebIcon'
 
-const ShowDownImage = ({arr}) => {
-    if (arr.length === 0) return <></>
+const ShowDownImage = ({current}) => {
+ 
+    if ( current === 'none') return <></>
 
   return (
-    <button onClick={e => copyMetaData(meta)}>
-    {/* copy to clipboard  */}
-   <i className="fa-solid fa-download sidebar_icon "></i>
-  </button>
+ 
+   <WebIcon 
+   title={'Download Image'}
+   filterName={'SAVE_CHANGE'}
+  
+   />
+
   )
 }
 

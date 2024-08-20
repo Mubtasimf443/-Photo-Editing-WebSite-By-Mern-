@@ -90,7 +90,8 @@ right: 2em;
   width: 1.65em;
   height: 1.65em;
   margin: 0.5em;
-  cursor: pointer;;
+  cursor: pointer;
+
 }
  .active_icon {
   background: inherit;

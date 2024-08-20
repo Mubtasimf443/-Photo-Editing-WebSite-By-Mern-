@@ -9,12 +9,13 @@
     <script src='jimpBrowser.js'></script>
     
 </head>
-<body>
+<body style="background-color: black;">
     
     <input type="file" name="" id="file">
     <div style="display: flex;flex-direction: row;">
  
-    <div class="b" style="width: 20em;background-image: url('../../../porfolio_img.png');min-height:100vh;background-size: contain;filter: blur(1.px);">
+    <div class="b" style="width: 20em;background-image: url('../../../porfolio_img.png');min-height:100vh;
+    background-size: contain;  rotate: 10;">
 
     </div>   <div class="a"></div>
 </div>
@@ -26,9 +27,8 @@
   // Read the image.
   const image = await Jimp.read(url );
    // Save and overwrite the image
- await  image.contrast(-0.8)
-console.log(image.bitmap);
-
+   await image.flip( false ,true);
+ await image.rotate( 120);
    let buff =await image.getBufferAsync(Jimp.MIME_JPEG)
    let uarr =await new Uint8Array(buff)
    let a =await new Blob([uarr] , {type :"image/jpeg"})
@@ -50,7 +50,7 @@ console.log(image.bitmap);
         let url = URL.createObjectURL(fie.files[0])
         let a =await blurImage(url,10)
         img.setAttribute('src',a)
-        img.setAttribute('style', 'width :20em')
+        img.setAttribute('style', 'min-width :0.1em;background-size:cover')
         div.appendChild(img)
 
 

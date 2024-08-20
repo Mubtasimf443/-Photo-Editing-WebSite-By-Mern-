@@ -17,13 +17,16 @@ import { filter as filterNames} from '../redux/filter'
 import { AddFilter } from '../utils/AddFilterInImage'
 import Upload_img_icon from '../icons/Upload_img_icon'
 import WebIcon from '../icons/WebIcon'
+import IconsOnly from '../icons/IconsOnly'
+import undoRedoFuction  from '../utils/undoFuction'
+import { FlipButton } from './FlipButton'
 
 let {OPACITY ,BLUR} = filterNames
 
 
 const SideBar = () => {
   let dispatch = useDispatch()
-  let {url , meta ,  status ,filter} = useSelector(e => e)
+  let { prev,forward, meta , busy, status ,current} = useSelector(e => e)
 
   function inputChange(e) {
     let img = e.target.files[0]
@@ -41,7 +44,7 @@ const SideBar = () => {
      <div className="upload_div">
       <input type="file" onChange={inputChange} style={{ display:'none'}} id='main_image_input'/>
       <label title='upload image' htmlFor="main_image_input">
-     <Upload_img_icon status={url.length === 0 ? 'main' :'active'} className={'img_icons'} />
+     <Upload_img_icon status={current === 'none' ? 'main' :'active'} className={'img_icons'} />
     
       </label>
   
@@ -49,12 +52,22 @@ const SideBar = () => {
       
      <ResizeDiv meta={meta}/>
       <div className="sidebar_btn_div">
-       
+       <FlipButton />
+       <WebIcon 
+       title={'Rotate Image'}
+       filterName={filterNames.ROTATE}
+       busy={busy}
+       action={actions.ADD_FILTER_ROTATE}
+       isFilterIcon={true}
+       />
+
+
         <WebIcon 
         title={'brightness'}
         action={actions.ADD_FILTER_BRIGHTNESS}
         filterName={filterNames.BRIGHTNESS}
         isFilterIcon={true}
+        busy={busy}
         />
 
         <WebIcon 
@@ -62,6 +75,8 @@ const SideBar = () => {
         action={actions.ADD_FILTER_SATURATION}
         filterName={filterNames.SATURATION}
         isFilterIcon={true}
+        busy={busy}
+
         />
        
         <WebIcon 
@@ -69,6 +84,8 @@ const SideBar = () => {
         action={actions.ADD_FILTER_BLUR} 
         title={'Blur'}
         isFilterIcon={true}
+        busy={busy}
+
          />
         
        <WebIcon 
@@ -76,6 +93,7 @@ const SideBar = () => {
         action={actions.ADD_FILTER_CONTRAST} 
         title={'contrast'}
         isFilterIcon={true}
+        busy={busy}
         />
 
 
@@ -85,6 +103,8 @@ const SideBar = () => {
         action={actions.ADD_FILTER_SCALE}
         isFilterIcon={true}
         title={'scale'}
+        busy={busy}
+
         />
 
 
@@ -93,6 +113,7 @@ const SideBar = () => {
         action={actions.ADD_FILTER_OPACITY} 
         title={'Opacity'}
         isFilterIcon={true}
+        busy={busy}
          /> 
         
         
@@ -101,43 +122,55 @@ const SideBar = () => {
           filterName={filterNames.HUE}
           action={actions.ADD_FILTER_HUE}
           isFilterIcon={true}
-        />
+          busy={busy}
+          />
         
        <WebIcon 
        title={'Remove Color'}
        action={actions.ADD_FILTER_GRAYSCALE}
        filterName={filterNames.GRAYSCALE}
        isFilterIcon={true}
+       busy={busy}
        />
+      
 
-        <WebIcon 
-          title={'Move to begining file'}
-          filterName={'REFRESH' }
-        />
-         
+ 
          <WebIcon 
           title={'undo'}
           filterName={'UNDO' }
-        />
+          busy={busy}
+          onClick={ e => {
+            if (busy.isBusy) return alert('await')
+            undoRedoFuction({prev :prev ,forward :forward,current :dispatch},dispatch,true)
+          }}
+          />
 
 
         <WebIcon 
           title={'redu'}
           filterName={'REDO' }
-        />
+          busy={busy}
+          
 
-        <WebIcon 
-        title={'save change'}
-        filterName={'SAVE_CHANGE'}
-        />
-        
+          onClick={e =>{ 
+            if (busy.isBusy) return alert('await')
+            undoRedoFuction({prev : prev,forward :forward,current :current},dispatch,false)
+          }}
+
+          />
+
+    
                
         <WebIcon 
         title={'copy Image as uint8Array'}
         filterName={'COPY_METADATA'}
+        busy={busy}
+        
         />
            
-             <ShowDownImage arr={url} />
+      <ShowDownImage 
+      current={current}
+              />
       </div>
       
   </div>

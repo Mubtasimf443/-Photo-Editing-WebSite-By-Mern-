@@ -5,17 +5,21 @@
 
 import { combineReducers, createStore } from "redux";
  import {composeWithDevTools} from 'redux-devtools-extension'
-import { changeArrayReducer, filterReducer, metedataReducer, statusReducer, urlReducer } from "./reducer";
+import { busyReduser, changeArrayReducer, currentUrlReducer, filterReducer, forwardUrlReducer, metedataReducer, prevUrlReducer, statusReducer, urlReducer } from "./reducer";
 
 const rootReducer = combineReducers({
-    url : urlReducer ,
+  
     meta : metedataReducer,
     status : statusReducer ,
     changeArray :changeArrayReducer,
-    filter :filterReducer 
+    filter :filterReducer ,
+    busy :busyReduser,
+    current : currentUrlReducer ,
+    prev : prevUrlReducer,
+    forward:forwardUrlReducer
 }) 
 
-export const store = createStore(rootReducer )
+export const store = createStore(rootReducer   )
 
 
 

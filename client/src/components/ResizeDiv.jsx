@@ -3,13 +3,15 @@
 
 import { useMemo, useRef } from "react"
 import { log, makePending } from "../utils/smallUtils"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { addTypeData } from "../redux/action"
 import actions from "../redux/actions"
+import { useSearchParams } from "react-router-dom"
+import { errToast } from "../utils/toast"
 
-const ResizeDiv = ({meta}) => {
+const ResizeDiv = ({meta }) => {
   let dispatch = useDispatch()
-  
+  let { current}= useSelector(state => state)
 
   let metaObj = useMemo(e => {
     if (meta.length === 0) return { height :"", width :""}
@@ -25,9 +27,9 @@ const ResizeDiv = ({meta}) => {
           <input 
           value={metaObj.height} 
           onClick={ e => { 
-    
+            if (busy.isBusy === true ) return log('busy')
+            if (current === 'none') return errToast('Please upload an Image ')
             makePending(dispatch)
-            
             }}  min={0}  className='hw_input'  type="number"  />
         </span>
         <span title="width">
@@ -35,7 +37,9 @@ const ResizeDiv = ({meta}) => {
           <input 
            value={metaObj.width} 
            onClick={ e => {
-            makePending(dispatch) }} min={0} className='hw_input' type="number" />
+            if (busy.isBusy === true ) return log('busy')
+           if (current === 'none') return errToast('Please upload an Image ')
+             makePending(dispatch) }} min={0} className='hw_input' type="number" />
         </span>
       </div>
   )

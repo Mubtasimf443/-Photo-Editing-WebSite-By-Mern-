@@ -13,10 +13,10 @@ import App from './App';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
- <StrictMode >
+<StrictMode >
   <Provider store={store}>
- <App />
+    <App />
   </Provider>
- </StrictMode>
+  </StrictMode>
    
 )

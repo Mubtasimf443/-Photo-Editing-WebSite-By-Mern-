@@ -7,6 +7,7 @@ import React from 'react'
 const main =  '../../public/icon/upload-image.png'
 const active = '../../public/icon/replace_image1.png'
 /*
+
 let obj = {
     main : a0acf0d2,
     second : 88c9ff,
