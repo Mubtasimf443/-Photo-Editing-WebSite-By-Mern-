@@ -8,6 +8,11 @@ I am working hard to develop an photo editing Tool which will have this function
 * change Quality
 * change Opacity 
 * change brightness 
+* chang heigth
+* change width
+* change color
+* flip the image 
+* rolate the image
 ...
 
 ###  The npm Libraries What Will be required in this projects are 

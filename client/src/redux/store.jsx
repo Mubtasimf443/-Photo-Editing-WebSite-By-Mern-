@@ -4,7 +4,6 @@
 
 
 import { combineReducers, createStore } from "redux";
- import {composeWithDevTools} from 'redux-devtools-extension'
 import { busyReduser, changeArrayReducer, currentUrlReducer, filterReducer, forwardUrlReducer, metedataReducer, prevUrlReducer, statusReducer, urlReducer } from "./reducer";
 
 const rootReducer = combineReducers({
@@ -19,7 +18,7 @@ const rootReducer = combineReducers({
     forward:forwardUrlReducer
 }) 
 
-export const store = createStore(rootReducer   )
+export const store = createStore(rootReducer)
 
 
 

@@ -2,8 +2,7 @@
 /*Allah is enough for me */ 
 
 
-import React, { useCallback, useState } from 'react'
-import WebIcon from '../icons/WebIcon'
+import  { useCallback, useState } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 import actions from '../redux/actions'
 import { addTypeData, returnTypeObj } from '../redux/action'

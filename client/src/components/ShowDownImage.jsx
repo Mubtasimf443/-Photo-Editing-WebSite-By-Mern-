@@ -2,9 +2,6 @@
 /* Allah is enough for me */
 
 
-import React from 'react'
-import { copyMetaData } from '../utils/smallUtils'
-import { useSelector } from 'react-redux'
 import WebIcon from '../icons/WebIcon'
 
 const ShowDownImage = ({current}) => {

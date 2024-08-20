@@ -2,7 +2,7 @@
 /*Allah is enough for me */ 
 
 
-import React, { useCallback } from 'react'
+import  { useCallback } from 'react'
 
 
 const IconsOnly = ({name ,alt ,title, className ,onClick}) => {

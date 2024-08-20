@@ -3,25 +3,20 @@
 
 
 
-import React, { useCallback, useMemo, useRef } from 'react'
+import  { useCallback,  } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import actions from '../redux/actions'
-import { addimage, addUrl, returnTypeObj, returnTypeValue } from '../redux/action'
 import ResizeDiv from './ResizeDiv'
-import { copyMetaData, log } from '../utils/smallUtils'
 import { errToast } from '../utils/toast'
 import UploadImageAsUrl from '../utils/UploadImageAsUrl'
 import ShowDownImage from './ShowDownImage'
 
 import { filter as filterNames} from '../redux/filter'
-import { AddFilter } from '../utils/AddFilterInImage'
 import Upload_img_icon from '../icons/Upload_img_icon'
 import WebIcon from '../icons/WebIcon'
-import IconsOnly from '../icons/IconsOnly'
 import undoRedoFuction  from '../utils/undoFuction'
 import { FlipButton } from './FlipButton'
 
-let {OPACITY ,BLUR} = filterNames
 
 
 const SideBar = () => {

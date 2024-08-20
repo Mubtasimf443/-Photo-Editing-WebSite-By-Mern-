@@ -1,12 +1,9 @@
 /* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ  ﷺ  InshaAllah */
 /* Allah is enough for me */
 
-import { useMemo, useRef } from "react"
+import { useMemo } from "react"
 import { log, makePending } from "../utils/smallUtils"
 import { useDispatch, useSelector } from "react-redux"
-import { addTypeData } from "../redux/action"
-import actions from "../redux/actions"
-import { useSearchParams } from "react-router-dom"
 import { errToast } from "../utils/toast"
 
 const ResizeDiv = ({meta }) => {

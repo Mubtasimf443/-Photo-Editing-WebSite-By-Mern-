@@ -2,7 +2,7 @@
 /* Allah is enough for me */ 
 
 
-import React, { useCallback } from 'react'
+import  { useCallback } from 'react'
 import useToggle from '../utils/useToggle.js'
 import IconsOnly from '../icons/IconsOnly'
 import flipImage from '../utils/flipImage.js'

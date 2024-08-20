@@ -28,6 +28,7 @@ export const addUrl = (url ) => {
         type :actions.ADD_URL,
         url
     }
+    
 }
 
 export const returnTypeValue = (type , value) => {

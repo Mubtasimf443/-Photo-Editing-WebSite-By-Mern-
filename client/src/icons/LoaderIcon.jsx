@@ -1,7 +1,7 @@
 /* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ  ﷺ  InshaAllah */
 /* Allah is enough for me */ 
 
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import { log } from '../utils/smallUtils'
 
 

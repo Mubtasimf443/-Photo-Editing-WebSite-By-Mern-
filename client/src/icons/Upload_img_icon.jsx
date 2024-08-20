@@ -2,7 +2,6 @@
 /*Allah is enough for me */ 
 
 
-import React from 'react'
 
 const main =  '../../public/icon/upload-image.png'
 const active = '../../public/icon/replace_image1.png'

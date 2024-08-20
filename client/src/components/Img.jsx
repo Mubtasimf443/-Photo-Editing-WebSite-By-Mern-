@@ -1,9 +1,8 @@
 /* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ  ﷺ  InshaAllah */
 /* Allah is enough for me */
 
-import React, { useCallback } from 'react'
+import { useCallback } from 'react'
 import { useSelector } from 'react-redux';
-import { log } from '../utils/smallUtils';
 import getFilterCSS from '../utils/getFilterCSS';
 import { useState } from 'react';
 import { filter  as filterNames} from '../redux/filter';
