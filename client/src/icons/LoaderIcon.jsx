@@ -5,12 +5,12 @@ import  { useState } from 'react'
 import { log } from '../utils/smallUtils'
 
 
-const load10 = '../../public/icon/load10.png'
-const load25 = '../../public/icon/load25.png'
-const load40 = '../../public/icon/load40.png'
-const load60 = '../../public/icon/load60.png'
-const load75 = '../../public/icon/load75.png'
-const load90 = '../../public/icon/load90.png'
+const load10 = '/icon/load10.png'
+const load25 = '/icon/load25.png'
+const load40 = '/icon/load40.png'
+const load60 = '/icon/load60.png'
+const load75 = '/icon/load75.png'
+const load90 = '/icon/load90.png'
 
 
 

@@ -3,8 +3,8 @@
 
 
 
-const main =  '../../public/icon/upload-image.png'
-const active = '../../public/icon/replace_image1.png'
+const main =  '/icon/upload-image.png'
+const active = '/icon/replace_image1.png'
 /*
 
 let obj = {

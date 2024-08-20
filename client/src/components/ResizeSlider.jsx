@@ -46,7 +46,7 @@ const ResizeSlider = () => {
 
 
     let left = useCallback(e => {
-        return  (status != actions.PENDING_STATUS) ? '-30em' : '0.5em'
+        return  (status != actions.PENDING_STATUS) ? '-34em' : '0.5em'
 
     } ,[status])
 

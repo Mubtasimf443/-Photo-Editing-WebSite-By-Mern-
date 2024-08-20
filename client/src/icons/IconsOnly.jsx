@@ -9,7 +9,7 @@ const IconsOnly = ({name ,alt ,title, className ,onClick}) => {
 
 
     let SRC = useCallback(e => {
-        if (name) return '../../public/icon/' + name + '.png'
+        if (name) return '/icon/' + name + '.png'
         return ''
     },[name])
     function onclickFunction(e) {

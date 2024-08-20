@@ -8,7 +8,7 @@ import { errToast } from "../utils/toast"
 
 const ResizeDiv = ({meta }) => {
   let dispatch = useDispatch()
-  let { current}= useSelector(state => state)
+  let { current , busy}= useSelector(state => state)
 
   let metaObj = useMemo(e => {
     if (meta.length === 0) return { height :"", width :""}
