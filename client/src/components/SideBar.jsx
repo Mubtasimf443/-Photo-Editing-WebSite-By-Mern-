@@ -36,6 +36,10 @@ const SideBar = () => {
   } , [status])
   return (
     <div id='sidebar'  >
+      <div className="upload_and_resize_div">
+
+
+    
      <div className="upload_div">
       <input type="file" onChange={inputChange} style={{ display:'none'}} id='main_image_input'/>
       <label title='upload image' htmlFor="main_image_input">
@@ -46,6 +50,7 @@ const SideBar = () => {
       </div>
       
      <ResizeDiv meta={meta}/>
+     </div>
       <div className="sidebar_btn_div">
        <FlipButton />
        <WebIcon 

@@ -19,7 +19,7 @@ const ResizeDiv = ({meta }) => {
    //log(height)
   return (
     <div className="resize_div">
-        <span title="height">
+        <div title="height">
             <b>H</b> 
           <input 
           value={metaObj.height} 
@@ -28,8 +28,8 @@ const ResizeDiv = ({meta }) => {
             if (current === 'none') return errToast('Please upload an Image ')
             makePending(dispatch)
             }}  min={0}  className='hw_input'  type="number"  />
-        </span>
-        <span title="width">
+        </div>
+        <div title="width">
             <b>W</b> 
           <input 
            value={metaObj.width} 
@@ -37,7 +37,7 @@ const ResizeDiv = ({meta }) => {
             if (busy.isBusy === true ) return log('busy')
            if (current === 'none') return errToast('Please upload an Image ')
              makePending(dispatch) }} min={0} className='hw_input' type="number" />
-        </span>
+        </div>
       </div>
   )
 }

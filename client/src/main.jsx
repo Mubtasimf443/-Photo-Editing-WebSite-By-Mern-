@@ -1,8 +1,9 @@
- /* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ  ﷺ  InshaAllah */
+/* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ  ﷺ  InshaAllah */
 /*Allah is enough for me */ 
-
-import '../public/css/style.css'
 import '../public/css/global.css'
+import '../public/css/style.css'
+import '../public/css/desktopResponsive.css'
+import '../public/css/mublieResponsive.css'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {Provider} from 'react-redux'

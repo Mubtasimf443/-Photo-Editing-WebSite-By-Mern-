@@ -13,9 +13,9 @@ const Home = () => {
   <SideBar />
   <ResizeSlider />
   <Slider />
-   <div className="img_container">
+  
     <Img />
-   </div>
+
 </section>
   )
 }

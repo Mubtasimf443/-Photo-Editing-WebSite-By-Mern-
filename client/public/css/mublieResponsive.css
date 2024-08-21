@@ -1,0 +1,47 @@
+ /* بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ  ﷺ  InshaAllah */
+/*Allah is enough for me */ 
+
+
+@media screen and (min-width :100px) and (max-width : 899px )  {
+  /*--- sidebar ---*/
+
+  #root {
+    width: 100%;
+  }
+  #sidebar {
+    display: flex;
+    flex-direction: row;
+    background:#020513 ;
+    justify-content: space-between;
+    justify-self: right;
+    width: 100%;
+    align-items: center;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scrollbar-width: none;
+  }
+
+
+  .img_container {
+    min-width: 100%;
+    min-width: 20em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+  height: fit-content;
+  overflow: scroll;
+  scrollbar-width: none;
+  padding: 2em 2em;
+  
+  }
+  
+  
+  .main_img{
+   max-width: 80%;
+   height: auto;
+   cursor: zoom-in;
+  }
+
+
+}
